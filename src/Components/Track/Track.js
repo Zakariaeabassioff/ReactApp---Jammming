@@ -2,12 +2,22 @@ import React from 'react';
 import './Track.css';
 
 class Track extends React.Component {
+    constructor(props){
+        super(props);
+        this.addTrack = this.addTrack.bind(this);
+    }
+
     renderAction(){
         if(this.props.isRemoval){
             return <button className="TrackAction">-</button>
         } else {
-            return <button className="TrackAction">+</button>
+            return <button className="TrackAction" onClick={this.addTrack}>+</button>
         }
+    }
+
+    //Ajouter une musique de la section results a la section playlist en appuyant sur le button '+'
+    addTrack(){
+        this.props.onAdd(this.props.track);
     }
 
     render(){
