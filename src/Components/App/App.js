@@ -26,6 +26,7 @@ class App extends React.Component {
     };
 
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   //Ajouter une musique de la liste des resultats a la playlist
@@ -42,6 +43,16 @@ class App extends React.Component {
     this.setState({playlistTracks : tracks});
   }
 
+  //Supprimer une musique de la playlist 
+  removeTrack(track){
+    let tracks = this.state.playlistTracks;
+    //Enlever la musique la playlist
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+
+    //Rafraichir le state de la playlist
+    this.setState({playlistTracks : tracks});
+  }
+
   render(){
     return(
       <div>
@@ -50,7 +61,7 @@ class App extends React.Component {
           <SearchBar />
           <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/> 
+          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack}/> 
           </div>
         </div>
       </div>
