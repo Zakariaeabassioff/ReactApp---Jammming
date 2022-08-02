@@ -1,5 +1,5 @@
 const clientId = '73e2805cf96843c0bc0dddc129549816';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'http://Zack-jammming.surge.sh';
 let userAccessToken;
 
 const Spotify = {
@@ -26,7 +26,7 @@ const Spotify = {
         }
     },
 
-    //Methode qui prend un param de recherche, le passe a la requete Spotify, puis retourn une reponse sous forme d'une liste de tracks dans le format JSON
+    //Methode qui prend un param de recherche, le passe a la requete Spotify, puis retourne une reponse sous forme d'une liste de tracks dans le format JSON
     search(searchTerm){
         const accessToken = Spotify.getAccessToken();
         //Passer la requete a l'API
